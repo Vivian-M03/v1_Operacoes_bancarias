@@ -16,7 +16,7 @@ salto_anterior = [saldo]
 
 while True:
     print(menu)
-    opcao = input('Operaçõa desejada: ')
+    opcao = input('Operação desejada: ')
 
     if opcao == '1':
         print('\n============ EXTRATO =============')
@@ -24,7 +24,7 @@ while True:
         print('\nVolte sempre!')
 
     elif opcao == '2':
-        valor_deposito = float(input('Digite o valor que deseja depoditar: R$ '))
+        valor_deposito = float(input('Digite o valor que deseja depositar: R$ '))
         saldo += valor_deposito
         historico_depositos.append(valor_deposito)
         print(f'\nDepósito de R$ {valor_deposito:.2f} realizado com sucesso!')
@@ -38,19 +38,19 @@ while True:
                 if valor_saque <= saldo:
                     valor_limite_saque -= 1
                     saldo -= valor_saque
-                    print('----------------SUCESSO!----------------')
-                    print(f'     Saque de R$ {valor_saque: .2f} realizado.')
+                    print(' ---------------- SUCESSO! ---------------- ')
+                    print(f'      Saque de R$ {valor_saque: .2f} realizado.')
 
                     historico_saque.append(valor_saque)
                 else:
-                    print('-------ERRO!-------')
-                    print('VALOR INDISPONÍVEL PARA SAQUE!') 
+                    print(' ------- ERRO! ------- ')
+                    print('\nVALOR INDISPONÍVEL PARA SAQUE!') 
             else:
-                print('-------ERRO!-------')
-                print('VALOR EXEDE LIMITE PARA SAQUE!')
+                print(' ------- ERRO! ------- ')
+                print('\nVALOR EXEDE LIMITE PARA SAQUE!')
         else:
-            print('-------ERRO!-------')
-            print('LIMITE DE SAQUE ATINGIDO!')
+            print(' ------- ERRO! ------- ')
+            print('\nLIMITE DE SAQUE ATINGIDO!')
         
         print('\nOperaçõa finalizada...')
     

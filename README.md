@@ -1,55 +1,80 @@
-# Sistema Bancário em Python 🐍
+# Sistema Bancário em Python 🏦🐍
 
-Este projeto foi desenvolvido como parte dos desafios de código do Bootcamp DIO, NTT DATA - Engenharia de Dados com Python. Ele oferece uma oportunidade prática de aplicar conceitos de programação em um contexto de software financeiro básico.
+Este projeto foi desenvolvido como parte dos desafios de código do **Bootcamp DIO, NTT DATA - Engenharia de Dados com Python**. Ele oferece uma oportunidade prática para aplicar conceitos de programação em um contexto de software financeiro básico.
 
-### 📍 Introdução
+---
 
-O projeto "Sistema Bancário com Python" é uma aplicação simples que simula operações bancárias fundamentais. Ele foi atualizado para corrigir erros e aprimorar funcionalidades, permitindo uma experiência mais robusta e funcional.
+## 📍 Introdução
+O **Sistema Bancário com Python** é uma aplicação simples que simula operações bancárias fundamentais. Com melhorias e correções aplicadas, o sistema agora proporciona uma experiência mais funcional e robusta.
 
-### 🎯 Objetivo Geral
+---
 
-O objetivo principal deste projeto é desenvolver um sistema que permita realizar as seguintes operações bancárias:
-- Sacar
-- Depositar
-- Visualizar extrato
-- Criar novos usuários e contas
-- Listar contas
+## 🎯 Objetivo Geral
+Desenvolver um sistema bancário capaz de realizar as seguintes operações:
+- **Saque**
+- **Depósito**
+- **Visualização de Extrato**
+- **Criação de Novos Usuários e Contas**
+- **Listagem de Contas**
 
-### 🚀 Funcionalidades
+---
 
-##### 📌 Depósito
+## 🚀 Funcionalidades
+
+### 📌 Depósito
 - Permite realizar depósitos de valores positivos.
-- Os depósitos são armazenados e exibidos na operação *Extrato*.
-- A entrada do valor do depósito foi corrigida para garantir a conversão correta para um número (`float`), evitando erros ao manipular valores numéricos inseridos como strings.
+- Os depósitos são registrados no histórico e exibidos no **Extrato**.
+- A entrada de valores foi corrigida para evitar erros ao manipular dados numéricos.
 
-##### 📌 Saque
-- O sistema permite até 3 saques diários, com um limite máximo de R$ 500,00 por saque.
-- Todos os saques são registrados e exibidos na operação *Extrato*.
-- Assim como no depósito, a entrada do valor do saque foi corrigida para garantir que os valores sejam tratados como números, resolvendo possíveis erros de execução.
+### 📌 Saque
+- Permite até **3 saques diários** com limite de **R$ 500,00 por saque**.
+- Todos os saques são registrados e exibidos no **Extrato**.
+- Valores inseridos como strings são tratados adequadamente para evitar falhas.
 
-##### 📌 Extrato
-- Exibe todos os depósitos e saques realizados na conta, fornecendo um histórico completo das transações.
-- A função foi corrigida para verificar se o extrato está vazio usando uma string vazia (`""`) em vez de comparar com `'0'`.
-- A formatação do saldo foi ajustada para exibir corretamente duas casas decimais com o uso do `.2f`.
+### 📌 Extrato
+- Exibe o histórico completo de transações da conta.
+- Melhoria na verificação de extrato vazio e formatação de valores monetários.
+- O saldo é exibido com duas casas decimais para maior precisão.
 
-##### 📌 Criação de Usuário
-- Permite cadastrar um novo usuário no sistema.
-- Os dados do usuário incluem nome completo, CPF, data de nascimento e endereço.
-- Corrigido um erro onde o CPF não era armazenado corretamente, garantindo que o CPF seja parte do cadastro do usuário.
+### 📌 Criação de Usuário
+- Permite cadastrar novos usuários com os seguintes dados:
+  - Nome completo
+  - CPF
+  - Data de nascimento
+  - Endereço
+- Correção na validação e armazenamento do CPF.
 
-##### 📌 Criação de Conta
-- Permite criar uma nova conta associada a um usuário existente.
-- O sistema valida o CPF do usuário antes de criar a conta.
-- Corrigido um erro que sobrescrevia a lista de contas em vez de adicionar novas contas corretamente. Agora, as contas são adicionadas de maneira apropriada com o uso de `append()`.
+### 📌 Criação de Conta
+- Cria uma nova conta vinculada a um usuário existente.
+- Valida o CPF antes de criar a conta.
+- Corrigido erro no registro de contas utilizando o método `append()` corretamente.
 
-##### 📌 Listagem de Contas
-- Permite listar todas as contas criadas no sistema, exibindo os detalhes da conta, como agência, número da conta e nome do titular.
+### 📌 Listagem de Contas
+- Lista todas as contas criadas, exibindo:
+  - Agência
+  - Número da conta
+  - Nome do titular
 
-### 📚 Nota Importante
-Diversas melhorias foram aplicadas ao projeto para garantir sua funcionalidade correta:
+---
 
-- **Correção de comparações e formatação**: O código foi atualizado para evitar comparações incorretas entre diferentes tipos de dados (ex.: comparar um número com uma string).
-  
-- **Tratamento de valores numéricos**: A entrada de valores monetários agora é convertida corretamente para `float` antes de qualquer operação, garantindo que os cálculos financeiros sejam realizados sem erros.
+## 📚 Nota Importante
+O código foi ajustado para garantir maior funcionalidade e evitar erros. As principais melhorias incluem:
+- **Correções de comparação e formatação**: Evitar conflitos entre diferentes tipos de dados, como comparar strings com números.
+- **Tratamento de valores numéricos**: Conversão automática de entradas para o tipo `float` antes de operações financeiras.
+- **Uso correto do método `append()`**: Garante que novos dados sejam adicionados às listas existentes sem sobrescrever valores.
 
-- **Uso do `append()`**: Na criação de contas e no registro de transações (depósitos e saques), o método `append()` é utilizado corretamente para adicionar novos dados à lista de contas e ao histórico de transações sem sobrescrever dados existentes.
+---
+
+## 🛠️ Tecnologias Utilizadas
+- **Python**: Linguagem principal do projeto.
+- **ABC (Abstract Base Classes)**: Para a definição de estruturas abstratas como transações.
+
+---
+
+## 📂 Estrutura do Projeto
+```plaintext
+Sistema_Bancario/
+├── main.py          # Arquivo principal do sistema
+├── classes.py       # Definições de classes e métodos
+├── utils/           # Funções auxiliares (futuro)
+└── README.md        # Documentação do projeto

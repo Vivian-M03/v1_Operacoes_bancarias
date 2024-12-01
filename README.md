@@ -7,6 +7,10 @@ Este projeto foi desenvolvido como parte dos desafios de código do **Bootcamp D
 ## 📍 Introdução
 O **Sistema Bancário com Python** é uma aplicação simples que simula operações bancárias fundamentais. Com melhorias e correções aplicadas, o sistema agora proporciona uma experiência mais funcional e robusta.
 
+## Sistema Bancário em Python 🐍
+
+![Diagrama do Sistema Bancário](imagem/sistema-bancario-preview.png.png)
+
 ---
 
 ## 🎯 Objetivo Geral

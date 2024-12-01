@@ -21,7 +21,7 @@ def exibir_extrato(saldo, /, *, extrato):
         if extrato == '':
             print('Não foram realizadas transações.')
         else:
-            print(f"\nSalto:\t\tR$ {saldo:.2f}")
+            print(f"\nSaldo:\t\tR$ {saldo:.2f}")
         print('==================================')
 
 def deposito(saldo, valor, extrato, /):
@@ -55,14 +55,14 @@ def saque(*, saldo, valor, limite, extrato,numero_saques, limite_saques):
     elif valor > 0:
         print('\n ---------------- SUCESSO! ---------------- \n')
         saldo -= valor
-        extrato += (f'Saque:\t\tR$ {saldo:.2f} realizado')
+        extrato += (f'Saque:\t\tR$ {valor:.2f} realizado')
         numero_saques += 1
         print(extrato)
     else:
-        print('\nOperação falho! Valir informato é invalido')
+        print('\nOperação falhou! Valor informato é invalido')
         print('\nOperaçõa finalizada...')
     
-    return saldo, extrato
+    return saldo, extrato, numero_saques
 
 def criar_usuario(usuarios):
     print('\n ------- Insira seus dados e torne-se um Orionzinho -------')
@@ -70,20 +70,20 @@ def criar_usuario(usuarios):
     usuario = filtrar_usuario(cpf, usuarios)
     if usuario:
         print('\n--------- ERRO! ---------')
-        print('\nUsuario já cadastrato!')
+        print('\nUsuario já cadrastato!')
         return
     
     nome = input('\nNome completo: ')
-    data_nascimento = input('\nInforme sua data de nacimento (dd-mm-aaaa): ')
+    data_nascimento = input('\nInforme sua data de nascimento (dd-mm-aaaa): ')
     endereco = input('\nInforme seu endereço (lagradouro, bairro - nro - cidade/sigla estado): ')
     
-    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "endereço": endereco})
+    usuarios.append({"cpg":cpf, "nome": nome, "data_nascimento": data_nascimento, "endereço": endereco})
     print(usuario)
     print('\n------- BEM VINDO(a) AO UNIVERSO ORION! -------')
-    print('\n Usuario cadastrato com sucesso!')
+    print('\n Usuario cadrastato com sucesso!')
 
 def filtrar_usuario(cpf, usuarios):
-    usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf ]
+    usuarios_filtrados = [usuario for usuario in usuarios if usuario.get("cpf") == cpf ]
     return usuarios_filtrados[0] if usuarios_filtrados else None
 
 def criar_conta(agencia, numero_conta, usuarios):
@@ -131,7 +131,7 @@ def main():
         elif opcao == '3':
 
             valor = float(input('\nDigite o valor do saque: '))
-            saldo, extrato = saque(
+            saldo, extrato, numero_saques = saque(
                 saldo=saldo,
                 valor=valor,
                 extrato=extrato,
@@ -152,7 +152,7 @@ def main():
             nova_conta = criar_conta(AGENCIA, numero_conta, usuarios)
 
             if nova_conta:
-                contas.append(contas)
+                contas.append(nova_conta)
         
         elif opcao == '7':
             print('\nO BANCO ORION AGRADECE A PREFERÊNCIA')
